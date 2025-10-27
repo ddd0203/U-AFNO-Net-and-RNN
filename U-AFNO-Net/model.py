@@ -435,22 +435,7 @@ def create_pure_unet(shape_in, **kwargs):
 # =============== 统一的模型工厂函数 ===============
 
 def create_model(model_name, shape_in, **kwargs):
-    """
-    统一的模型创建函数，用于消融实验
-    
-    Args:
-        model_name: 模型名称，支持以下选项：
-            - 'simvp_unet_afno': 标准UNet + AFNO
-            - 'simvp_compact_unet_afno': 紧凑UNet + AFNO  
-            - 'simvp_unet_only': UNet + UNet中间网络
-            - 'simvp_cnn_baseline': UNet + CNN中间网络
-            - 'simvp_original_afno': 原始架构 + AFNO
-            - 'pure_afno': 纯AFNO模型
-            - 'pure_unet': 纯UNet模型
-        shape_in: 输入形状 (T, C, H, W)
-        **kwargs: 其他模型参数
-    """
-    
+  
     model_factory = {
         'unet_afno': create_unet_afno,
         'compact_unet_afno': create_compact_unet_afno,
